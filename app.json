@@ -1,0 +1,21 @@
+{
+  "name": "Dank Duels Online",
+  "description": "An online version of Dank Duels",
+  "website": "https://github.com/Luk3y/Dank-Duels-Online.git",
+  "repository": "https://github.com/Luk3y/Dank-Duels-Online.git",
+  "success_url": "/",
+  "keywords": [
+    "node",
+    "express",
+    "socket.io",
+    "realtime",
+    "websocket"
+  ],
+  "scripts": {
+  },
+  "addons": [
+  ],
+  "env": {
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs"
+  }
+}
