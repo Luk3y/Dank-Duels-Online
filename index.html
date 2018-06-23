@@ -23,6 +23,22 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       $(function () {
+        //x is 0 - 1000
+        //y is 0 - 1000
+        setPosition(StartForm, 500, 500);
+
+        var screenX = 0;
+        var screenY = 0;
+        if(true) {
+            var w = window;
+            d = document;
+            e = d.documentElement;
+            g = d.getElementsByTagName('body')[0];
+            x = w.innerWidth || e.clientWidth || g.clientWidth;
+            y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+            screenX = x;
+            screenY = y;
+        }
 
         var socket = io();
 
@@ -39,6 +55,13 @@
         });
 
       });
+
+      function setPosition(e, x, y) {
+        var element = document.getElementById(e);
+
+        element.style.left = (screenX / 1000) * x;
+        element.style.top = (screenX / 1000) * x;
+      }
     </script>
   </body>
 </html>
