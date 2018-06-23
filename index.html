@@ -9,7 +9,10 @@
     </style>
   </head>
   <body>
-    <p>Hi</p>
+    <form action="" id="StartForm">
+      <input value="GameId" id="GameId" autocomplete="off" />
+      <button id="PlayBtn">Play</button>
+    </form>
 
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
@@ -17,6 +20,18 @@
       $(function () {
 
         var socket = io();
+
+        $('form').submit(function(){
+          if($('#GameId').val() !== '' && $('#GameId').val() !== null) {
+
+            //socket.emit('createChar', $('#usr').val());
+            document.write($('#GameId').val());
+            $('#StartForm').remove();
+
+            gameStart = true;
+          }
+          return false;
+        });
 
       });
     </script>
