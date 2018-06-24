@@ -20,25 +20,21 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
+      var screenX = 0;
+      var screenY = 0;
+      if(true) {
+        var w = window;
+        d = document;
+        e = d.documentElement;
+        g = d.getElementsByTagName('body')[0];
+        x = w.innerWidth || e.clientWidth || g.clientWidth;
+        y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+        screenX = x;
+        screenY = y;
+      }
       $(function () {
         //x is 0 - 1000
         //y is 0 - 1000
-
-        var screenX = 0;
-        var screenY = 0;
-        if(true) {
-            var w = window;
-            d = document;
-            e = d.documentElement;
-            g = d.getElementsByTagName('body')[0];
-            x = w.innerWidth || e.clientWidth || g.clientWidth;
-            y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-            screenX = x;
-            screenY = y;
-        }
-
-        console.log(screenX);
-        console.log(screenY);
 
         var socket = io();
 
@@ -63,11 +59,6 @@
       function setPosition(e, x, y) {
         var element = document.getElementById(e);
         element.style.left = (screenX / 1000) * x + "px";
-        console.log("x: " + x);
-        console.log("screenX: " + screenX);
-        console.log("(screenX / 1000): " + (screenX / 1000));
-        console.log("(screenX / 1000) * x: " + (screenX / 1000) * x);
-        console.log((screenX / 1000) * x + "px");
         element.style.top = (screenY / 1000) * y + "px";
       }
     </script>
