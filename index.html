@@ -63,6 +63,10 @@
       function setPosition(e, x, y) {
         var element = document.getElementById(e);
         element.style.left = (screenX / 1000) * x + "px";
+        console.log("x: " + x);
+        console.log("screenX: " + screenX);
+        console.log("(screenX / 1000): " + (screenX / 1000));
+        console.log("(screenX / 1000) * x: " + (screenX / 1000) * x);
         console.log((screenX / 1000) * x + "px");
         element.style.top = (screenY / 1000) * y + "px";
       }
