@@ -23,7 +23,6 @@
       $(function () {
         //x is 0 - 1000
         //y is 0 - 1000
-        setPosition('StartForm', 500, 500);
 
         var screenX = 0;
         var screenY = 0;
@@ -39,6 +38,10 @@
         }
 
         var socket = io();
+
+        ///////////////////////
+
+        setPosition('StartForm', 500, 500);
 
         $('form').submit(function(){
           if($('#GameId').val() !== '' && $('#GameId').val() !== null) {
@@ -56,7 +59,7 @@
 
       function setPosition(e, x, y) {
         var element = document.getElementById(e);
-
+s
         element.style.left = (screenX / 1000) * x + "px";
         element.style.top = (screenY / 1000) * y + "px";
       }
