@@ -8,6 +8,9 @@
       }
       #StartForm {
         text-align: center;
+        position: absolute;
+        width: 50px;
+        height: 100px;
       }
     </style>
   </head>
@@ -58,8 +61,8 @@
 
       function setPosition(e, x, y) {
         var element = document.getElementById(e);
-        element.style.left = (screenX / 1000) * x + "px";
-        element.style.top = (screenY / 1000) * y + "px";
+        element.style.left = (screenX / 1000) * x - (element.style.width / 2) + "px";
+        element.style.top = (screenY / 1000) * y x - (element.style.height / 2) + "px";
       }
     </script>
   </body>
