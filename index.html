@@ -69,7 +69,6 @@
             socket.emit('newUser', userID, $('#GameId').val());
 
             gameStart = true;
-            console.log(gameStart);
           }
           return false;
         });
@@ -80,7 +79,7 @@
           userID = newUserID;
         });
 
-        if(gameStart) {
+        if(true) {
           socket.on('Update', function(players) {
             var localPlayers = [];
 
