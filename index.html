@@ -79,8 +79,9 @@
           userID = newUserID;
         });
 
-        if(gameStart) {
-          socket.on('Update', function(players) {
+
+        socket.on('Update', function(players) {
+          if(gameStart) {
             var localPlayers = [];
 
             for(i = 0; i < players.length; i++) {
@@ -90,8 +91,8 @@
             }
 
             document.write('You: ' + userID + " In your game: " + localPlayers);
-          });
-        }
+          }
+        });
         //end of load page
       });
 
