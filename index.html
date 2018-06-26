@@ -82,7 +82,6 @@
 
         socket.on('Update', function(players) {
           if(gameStart) {
-            console.log(players);
             var localPlayers = [];
 
             for(i = 0; i < players.length; i++) {
@@ -91,12 +90,12 @@
               }
             }
 
-            document.documentElement.innerHTML = '';
-            document.write('You: ' + userID);
-            document.write('In your game: ');
+            var documentDisplay = 'You: ' + userID + ' In your game: ';
             for(i = 0; i < localPlayers; i++) {
-              document.write(localPlayers[i]);
+              documentDisplay = documentDisplay + localPlayers[i];
             }
+
+            document.documentElement.innerHTML = documentDisplay;
           }
         });
         //end of load page

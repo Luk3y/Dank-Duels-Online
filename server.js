@@ -37,7 +37,7 @@ io.on('connection', function(socket){
 
 
 function Update() {
-  if(lastUpdate + 40 <= new Date().getTime()) {
+  if(lastUpdate + 10 <= new Date().getTime()) {
     io.emit('Update', players);
 
     lastUpdate = new Date().getTime();
