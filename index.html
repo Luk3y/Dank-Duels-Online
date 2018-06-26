@@ -43,7 +43,7 @@
 
         ///////////////////////
 
-        setPosition('StartForm', 500, 500);
+        setPosition('StartForm', null, 500);
 
         $('form').submit(function(){
           if($('#GameId').val() !== '' && $('#GameId').val() !== null) {
@@ -65,8 +65,12 @@
         if(w == null) {w = 0}
         if(h == null) {h = 0}
 
-        element.style.left = screenX / 1000 * x - screenX / 1000 * w / 2 + "px";
-        element.style.top = screenY / 1000 * y - screenY / 1000 * h / 2 + "px";
+        if(x !== null) {
+          element.style.left = screenX / 1000 * x - screenX / 1000 * w / 2 + "px";
+        }
+        if(y !== null) {
+          element.style.top = screenY / 1000 * y - screenY / 1000 * h / 2 + "px";
+        }
       }
     </script>
   </body>
