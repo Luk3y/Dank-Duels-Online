@@ -91,7 +91,12 @@
               }
             }
 
-            document.write('You: ' + userID + " In your game: " + localPlayers);
+            document.documentElement.innerHTML = '';
+            document.write('You: ' + userID);
+            document.write('In your game: ');
+            for(i = 0; i < localPlayers; i++) {
+              document.write(localPlayers[i]);
+            }
           }
         });
         //end of load page
