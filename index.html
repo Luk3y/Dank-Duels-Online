@@ -62,7 +62,7 @@
           if($('#GameId').val() !== '' && $('#GameId').val() !== null) {
 
             //socket.emit('createChar', $('#usr').val());
-            document.write($('#GameId').val());
+            document.write($('#GameId').val() + " : " + userID);
             $('#StartForm').remove();
 
             gameStart = true;
@@ -74,7 +74,6 @@
 
         socket.on('NewUserID', function(newUserID) {
           userID = newUserID;
-          console.log(userID);
         });
         //end of load page
       });
