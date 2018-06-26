@@ -13,7 +13,7 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   UserIdCounter++;
-  userID.number = UserIdCounter;
+  socket.userID = UserIdCounter;
   io.emit('NewUserID', socket.userID);
 
   socket.on('disconnect', function() {
