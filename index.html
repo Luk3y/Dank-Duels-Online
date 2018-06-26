@@ -59,10 +59,14 @@
 
       });
 
-      function setPosition(e, x, y) {
+      function setPosition(e, x, y, w, h) {
         var element = document.getElementById(e);
-        element.style.left = (screenX / 1000) * x - (element.style.width / 2) + "px";
-        element.style.top = (screenY / 1000) * y - (element.style.height / 2) + "px";
+        
+        if(w == null) {w = 0}
+        if(h == null) {h = 0}
+
+        element.style.left = (screenX / 1000) * x - (w / 2) + "px";
+        element.style.top = (screenY / 1000) * y - (h / 2) + "px";
       }
     </script>
   </body>
