@@ -52,6 +52,7 @@
         ///////////////////////var start
 
         var userID;
+        var gameID;
 
         ///////////////////////var end; preGame Start
 
@@ -60,12 +61,10 @@
 
         $('form').submit(function(){
           if($('#GameId').val() !== '' && $('#GameId').val() !== null) {
+            gameID = $('#GameId').val();
 
-            //socket.emit('createChar', $('#usr').val());
-            document.write($('#GameId').val() + " : " + userID);
             $('#StartForm').remove();
-
-            gameStart = true;
+            socket.emit('newUser', userID, $('#GameId').val());
           }
           return false;
         });
@@ -74,6 +73,18 @@
 
         socket.on('NewUserID', function(newUserID) {
           userID = newUserID;
+        });
+
+        socket.on('Update', function(players) {
+          var localPlayers = [];
+
+          for(i = 0; i < players.length; i++) {
+            if(players[i].gameID === gameID) {
+              localPlayers[localPlayers.length] = players[i];
+            }
+          }
+
+          document.write('You: ' + userID + " In your game: " + localPlayers);
         });
         //end of load page
       });
