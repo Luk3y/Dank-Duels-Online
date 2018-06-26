@@ -9,7 +9,7 @@
       #StartForm {
         text-align: center;
         position: absolute;
-        width: 50px;
+        width: 200px;
         height: 100px;
       }
     </style>
@@ -61,12 +61,12 @@
 
       function setPosition(e, x, y, w, h) {
         var element = document.getElementById(e);
-        
+
         if(w == null) {w = 0}
         if(h == null) {h = 0}
 
-        element.style.left = (screenX / 1000) * x - (w / 2) + "px";
-        element.style.top = (screenY / 1000) * y - (h / 2) + "px";
+        element.style.left = screenX / 1000 * x - screenX / 1000 * w / 2 + "px";
+        element.style.top = screenY / 1000 * y - screenY / 1000 * h / 2 + "px";
       }
     </script>
   </body>
