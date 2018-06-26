@@ -76,7 +76,7 @@
         //////////////////////preGame end; sockets Start
 
         socket.on('NewUserID', function(newUserID) {
-          if(userID = null) {
+          if(userID === null) {
             userID = newUserID;
           }
         });
