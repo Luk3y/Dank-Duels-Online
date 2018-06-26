@@ -13,10 +13,10 @@
         height: 100px;
       }
       #GameId {
-        font-size: 20px;
+        font-size: 30px;
       }
       #PlayBtn {
-        font-size: 20px;
+        font-size: 30px;
       }
     </style>
   </head>
@@ -51,7 +51,7 @@
 
         ///////////////////////
 
-        setPosition('StartForm', null, 500);
+        setPosition('StartForm', null, 500, null, document.getElementById('StartForm').style.height);
         document.getElementById('StartForm').style.width = screenX + "px";
 
         $('form').submit(function(){
