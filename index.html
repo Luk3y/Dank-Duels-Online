@@ -34,6 +34,7 @@
         screenX = x;
         screenY = y;
       }
+
       $(function () {
         //x is 0 - 1000
         //y is 0 - 1000
@@ -43,6 +44,7 @@
         ///////////////////////
 
         setPosition('StartForm', null, 500);
+        document.getElementById('StartForm').style.width = screenX + "px";
 
         $('form').submit(function(){
           if($('#GameId').val() !== '' && $('#GameId').val() !== null) {
