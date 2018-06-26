@@ -83,6 +83,7 @@
         socket.on('Update', function(players) {
           if(gameStart) {
             console.log(players);
+            console.log(gameID);
             var localPlayers = [];
 
             for(i = 0; i < players.length; i++) {
