@@ -51,6 +51,8 @@
 
         ///////////////////////var start
 
+        var gameStart = false;
+
         var userID;
         var gameID;
 
@@ -65,6 +67,8 @@
 
             $('#StartForm').remove();
             socket.emit('newUser', userID, $('#GameId').val());
+
+            gameStart = true;
           }
           return false;
         });
@@ -75,17 +79,19 @@
           userID = newUserID;
         });
 
-        socket.on('Update', function(players) {
-          var localPlayers = [];
+        if(gameStart) {
+          socket.on('Update', function(players) {
+            var localPlayers = [];
 
-          for(i = 0; i < players.length; i++) {
-            if(players[i].gameID === gameID) {
-              localPlayers[localPlayers.length] = players[i];
+            for(i = 0; i < players.length; i++) {
+              if(players[i].gameID === gameID) {
+                localPlayers[localPlayers.length] = players[i];
+              }
             }
-          }
 
-          document.write('You: ' + userID + " In your game: " + localPlayers);
-        });
+            document.write('You: ' + userID + " In your game: " + localPlayers);
+          });
+        }
         //end of load page
       });
 
