@@ -120,8 +120,8 @@
       function setPosition(e, x, y, w, h) {
         var element = document.getElementById(e);
 
-        if(w == null) {w = 0} else {element.style.width = w}
-        if(h == null) {h = 0} else {element.style.height = h}
+        if(w == null) {w = 0} else {element.style.width = w + "px"}
+        if(h == null) {h = 0} else {element.style.height = h + "px"}
 
         if(x !== null) {
           element.style.left = screenX / 1000 * x - screenX / 1000 * w / 2 + "px";
