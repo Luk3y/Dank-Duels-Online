@@ -130,8 +130,8 @@
       function setPosition(e, x, y, w, h) {
         var element = document.getElementById(e);
 
-        if(w == null) {w = 0} else {element.style.width = w + "px"}
-        if(h == null) {h = 0} else {element.style.height = h + "px"}
+        if(w == null) {w = 0} else {element.style.width = screenX / 1000 * w + "px"}
+        if(h == null) {h = 0} else {element.style.height = screenY / 1000 * h + "px"}
 
         if(x !== null) {
           element.style.left = screenX / 1000 * x - screenX / 1000 * w / 2 + "px";
@@ -154,8 +154,9 @@
           if(!cardCreated) {
             $('#cardHolder').append('<div id="' + newCards[i].element + '" class="Card"></div>');
             var e = document.getElementById(newCards[i].element);
-            spriteSetPosition(newCards[i]);
           }
+
+          spriteSetPosition(newCards[i]);
         }
 
         cards = newCards;
