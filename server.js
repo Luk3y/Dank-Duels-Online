@@ -26,8 +26,14 @@ io.on('connection', function(socket){
     player.gameID = gameID;
     players[players.length] = player;
 
-    for(i = 0; i < 6; i++) {
-      createCard(i, 57 * (i + 1) + 100 * i + 50, 500, userID, gameID);
+    for(i = 0; i < 2; i++) {
+      var y = 80 * (i + 1 + 2) + 150 * (i + 2) + 75;;
+
+      for(j = 0; j < 6; j++) {
+        var x = 57.14 * (j + 1) + 100 * j + 50;
+
+        createCard(i, x, y, userID, gameID);
+      }
     }
 
   });
