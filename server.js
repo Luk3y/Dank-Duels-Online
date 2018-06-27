@@ -32,7 +32,7 @@ io.on('connection', function(socket){
       for(j = 0; j < 6; j++) {
         var x = 57.14 * (j + 1) + 100 * j + 50;
 
-        createCard((i + 1) * (j + 1), x, y, userID, gameID);
+        createCard((j + 1) + (i * 6), x, y, userID, gameID);
       }
     }
 
