@@ -30,7 +30,7 @@ io.on('connection', function(socket){
       var y = 31.4285 * (i + 1 + 0) + 130 * (i + 0) + 65;;
 
       for(j = 0; j < 6; j++) {
-        var x = 57.14 * (j + 1) + 100 * j + 50;
+        var x = 70 * (j + 1) + 85 * j + 42.5;
 
         createCard(j + (i * 6), x, y, userID, gameID);
       }
@@ -57,7 +57,7 @@ io.on('connection', function(socket){
 /////////////////////////////////sockets end; functions start
 
 function createCard(element, x, y, owner, game) {
-  var card = createSprite(element, x, y, 100, 130);
+  var card = createSprite(element, x, y, 85, 130);
   card.owner = owner;
   card.gameID = game;
 
