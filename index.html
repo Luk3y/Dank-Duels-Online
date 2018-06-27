@@ -145,7 +145,7 @@
 
           if(!cardCreated) {
             $('#cardHolder').append('<div id="' + newCards[i].element + '" class="Card"></div>');
-            var e = document.getElementById(element);
+            var e = document.getElementById(newCards[i].element);
             spriteSetPosition(newCards[i]);
           }
         }
