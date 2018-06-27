@@ -12,7 +12,7 @@ var lastUpdate = new Date().getTime();
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
-
+createCard("meme", 500, 500);
 ////////////////////////////////sockets start
 
 io.on('connection', function(socket){
