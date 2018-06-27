@@ -167,6 +167,20 @@
       }
 
       function cardHandler(newCards) {
+        for(i = 0; i < cards.length; i++) {
+          var cardDeleted = true;
+
+          for(j = 0; j < newCards.length; j++) {
+            if(newCards[j].element === cards[i].element) {
+              cardDeleted = false;
+            }
+          }
+
+          if(cardDeleted) {
+            $(cards[i].element).remove();
+          }
+        }
+
         for(i = 0; i < newCards.length; i++) {
           var cardCreated = false;
 
