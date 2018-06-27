@@ -94,6 +94,17 @@
 
 
         socket.on('Update', function(players, newCards) {
+          if(true) {
+            var w = window;
+            d = document;
+            e = d.documentElement;
+            g = d.getElementsByTagName('body')[0];
+            x = w.innerWidth || e.clientWidth || g.clientWidth;
+            y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+            screenX = x;
+            screenY = y;
+          }
+
           if(gameStart) {
             var gameCards = [];
             for(i = 0; i < newCards.length; i++) {
