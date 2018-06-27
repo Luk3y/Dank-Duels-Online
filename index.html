@@ -114,6 +114,10 @@
             }
             newCards = gameCards;
 
+            for(i = 0; i < newCards.length; i++) {
+              newCards[i].w = newCards[i].h * 0.65;
+            }
+
             var localPlayers = [];
 
             for(i = 0; i < players.length; i++) {
