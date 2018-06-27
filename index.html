@@ -21,6 +21,8 @@
     </style>
   </head>
   <body>
+    <div id="gameStatus"></div>
+
     <form action="" id="StartForm">
       <input value="GameId" id="GameId" autocomplete="off" />
       <br>
@@ -97,7 +99,7 @@
               documentDisplay = documentDisplay + '(' + localPlayers[i].userID + ':' + localPlayers[i].gameID + ')';
             }
 
-            document.documentElement.innerHTML = documentDisplay;
+            document.getElementById('gameStatus').innerHTML = documentDisplay;
           }
         });
         //end of load page
