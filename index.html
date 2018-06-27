@@ -197,8 +197,8 @@
           if(newCards[i].owner === userID) {
             spriteSetPosition(newCards[i]);
           } else {
-            var y = (newCards[i].y - 500) * -1 + 500;
-            setPosition(newCards[i].element, newCards[i].x, y, newCards[i].w, newCards[i].h)
+            var newCards[i].y = (newCards[i].y - 500) * -1 + 500;
+            spriteSetPosition(newCards[i]);
             document.getElementById(newCards[i].element).style.transform = 'rotate(180deg)';
           }
         }
