@@ -6,11 +6,14 @@ var port = process.env.PORT || 3000;
 
 var UserIdCounter = 0;
 var players = [];
+var cards = [];
 var lastUpdate = new Date().getTime();
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
+
+////////////////////////////////sockets start
 
 io.on('connection', function(socket){
   UserIdCounter++;
@@ -35,10 +38,27 @@ io.on('connection', function(socket){
 
 });
 
+/////////////////////////////////sockets end; functions start
 
+function createCard(element, x, y) {
+  var card = createSprite(element, x, y, 100, 150);
+  cards[cards.length] = card;
+}
+
+function createSprite(element,x,y,w,h) {
+  var result = new Object();
+  result.element = element;
+  result.x = x;
+  result.y = y;
+  result.w = w;
+  result.h = h;
+  return result;
+}
+
+/////////////////////////////////functions end; Update start
 function Update() {
   if(lastUpdate + 10 <= new Date().getTime()) {
-    io.emit('Update', players);
+    io.emit('Update', players, cards);
 
     lastUpdate = new Date().getTime();
   }
