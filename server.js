@@ -26,7 +26,7 @@ io.on('connection', function(socket){
     player.gameID = gameID;
     players[players.length] = player;
 
-    for(i = 0; i < 6; i++) {
+    for(i = 0; i < 3; i++) {
       var y = 31.4285 * (i + 1 + 3) + 130 * (i + 3) + 65;;
 
       for(j = 0; j < 6; j++) {
