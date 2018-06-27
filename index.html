@@ -45,20 +45,22 @@
         screenY = y;
       }
 
+      ///////////////////////var start
+
+      var gameStart = false;
+
+      var userID;
+      var gameID;
+
+      ///////////////////////var end
+
       $(function () {
         //x is 0 - 1000
         //y is 0 - 1000
 
         var socket = io();
 
-        ///////////////////////var start
-
-        var gameStart = false;
-
-        var userID;
-        var gameID;
-
-        ///////////////////////var end; preGame Start
+        ///////////////////////preGame Start
 
         setPosition('StartForm', null, 500, null, 100);
         document.getElementById('StartForm').style.width = screenX + "px";
@@ -69,6 +71,8 @@
 
             $('#StartForm').remove();
             socket.emit('newUser', userID, gameID);
+
+            createCard("meme", 500, 500);
 
             gameStart = true;
           }
@@ -108,8 +112,8 @@
       function setPosition(e, x, y, w, h) {
         var element = document.getElementById(e);
 
-        if(w == null) {w = 0}
-        if(h == null) {h = 0}
+        if(w == null) {w = 0} else {element.style.width = w}
+        if(h == null) {h = 0} else {element.style.height = h}
 
         if(x !== null) {
           element.style.left = screenX / 1000 * x - screenX / 1000 * w / 2 + "px";
@@ -117,6 +121,20 @@
         if(y !== null) {
           element.style.top = screenY / 1000 * y - screenY / 1000 * h / 2 + "px";
         }
+      }
+
+      function createCard(e, x, y) {
+        createSprite(e, x, y, 100, 150);
+      }
+
+      function createSprite(element,x,y,w,h) {
+        var result = new Object();
+        result.element = element;
+        result.x = x;
+        result.y = y;
+        result.w = w;
+        result.h = h;
+        return result;
       }
     </script>
   </body>
