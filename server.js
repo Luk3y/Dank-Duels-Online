@@ -33,6 +33,12 @@ io.on('connection', function(socket){
   socket.on('disconnect', function() {
     for(i = 0; i < players.length; i++) {
       if(players[i].userID === socket.userID) {
+        for(j = 0; j < cards.length; j++) {
+          if(cards[j].owner === players[i].userID) {
+            cards.splice(j, 1);
+          }
+        }
+
         players.splice(i, 1);
       }
     }
@@ -64,6 +70,7 @@ function createSprite(element,x,y,w,h) {
 function Update() {
   if(lastUpdate + 100 <= new Date().getTime()) {
     io.emit('Update', players, cards);
+    console.log(cards);
 
     lastUpdate = new Date().getTime();
   }
