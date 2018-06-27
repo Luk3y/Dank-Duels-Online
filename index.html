@@ -197,7 +197,7 @@
           if(newCards[i].owner === userID) {
             spriteSetPosition(newCards[i]);
           } else {
-            var newCards[i].y = (newCards[i].y - 500) * -1 + 500;
+            newCards[i].y = (newCards[i].y - 500) * -1 + 500;
             spriteSetPosition(newCards[i]);
             document.getElementById(newCards[i].element).style.transform = 'rotate(180deg)';
           }
