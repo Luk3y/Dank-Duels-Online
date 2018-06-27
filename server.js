@@ -57,7 +57,7 @@ function createSprite(element,x,y,w,h) {
 
 /////////////////////////////////functions end; Update start
 function Update() {
-  if(lastUpdate + 10 <= new Date().getTime()) {
+  if(lastUpdate + 100 <= new Date().getTime()) {
     io.emit('Update', players, cards);
 
     lastUpdate = new Date().getTime();
