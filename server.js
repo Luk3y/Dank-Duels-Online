@@ -12,7 +12,6 @@ var lastUpdate = new Date().getTime();
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
-createCard("meme", 500, 500);
 ////////////////////////////////sockets start
 
 io.on('connection', function(socket){
@@ -26,6 +25,9 @@ io.on('connection', function(socket){
     player.userID = userID;
     player.gameID = gameID;
     players[players.length] = player;
+
+    createCard("meme", 500, 500, userID, gameID);
+
   });
 
   socket.on('disconnect', function() {
@@ -40,8 +42,11 @@ io.on('connection', function(socket){
 
 /////////////////////////////////sockets end; functions start
 
-function createCard(element, x, y) {
+function createCard(element, x, y, owner, game) {
   var card = createSprite(element, x, y, 100, 150);
+  card.owner = owner;
+  card.gameID = game;
+
   cards[cards.length] = card;
 }
 

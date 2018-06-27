@@ -95,6 +95,14 @@
 
         socket.on('Update', function(players, newCards) {
           if(gameStart) {
+            var gameCards = [];
+            for(i = 0; i < newCards.length; i++) {
+              if(newCards[i].gameID === gameID) {
+                gameCards[gameCards.length] = newCards[i];
+              }
+            }
+            newCards = gameCards;
+
             var localPlayers = [];
 
             for(i = 0; i < players.length; i++) {
