@@ -26,7 +26,9 @@ io.on('connection', function(socket){
     player.gameID = gameID;
     players[players.length] = player;
 
-    createCard("meme", 500, 500, userID, gameID);
+    for(i = 0; i < 6; i++) {
+      createCard(i, 57 * (i + 1) + 100 * i, 500, userID, gameID);
+    }
 
   });
 
@@ -70,7 +72,6 @@ function createSprite(element,x,y,w,h) {
 function Update() {
   if(lastUpdate + 100 <= new Date().getTime()) {
     io.emit('Update', players, cards);
-    console.log(cards);
 
     lastUpdate = new Date().getTime();
   }
