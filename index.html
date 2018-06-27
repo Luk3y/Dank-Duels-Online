@@ -18,10 +18,14 @@
       #PlayBtn {
         font-size: 30px;
       }
+      .Card {
+        background-color: rgb(0, 0, 0);
+      }
     </style>
   </head>
   <body>
     <div id="gameStatus"></div>
+    <div id='cardHolder'></div>
 
     <form action="" id="StartForm">
       <input value="GameId" id="GameId" autocomplete="off" />
@@ -109,6 +113,9 @@
         //end of load page
       });
 
+      function spriteSetPosition(sprite) {
+        setPosition(sprite.element, sprite.x, sprite.y, sprite.w, sprite.h);
+      }
       function setPosition(e, x, y, w, h) {
         var element = document.getElementById(e);
 
@@ -123,8 +130,12 @@
         }
       }
 
-      function createCard(e, x, y) {
-        createSprite(e, x, y, 100, 150);
+      function createCard(element, x, y) {
+        var card = createSprite(element, x, y, 100, 150);
+
+        $('#cardHolder').append('<div id="' + element + '" class="Card"></div>');
+        var e = document.getElementById(element);
+        spriteSetPosition(card);
       }
 
       function createSprite(element,x,y,w,h) {
