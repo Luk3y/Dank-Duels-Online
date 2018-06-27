@@ -32,7 +32,7 @@ io.on('connection', function(socket){
       for(j = 0; j < 6; j++) {
         var x = 70 * (j + 1) + 85 * j + 42.5;
 
-        createCard(userID + 'card' + j + (i * 6), x, y, userID, gameID);
+        createCard(userID + 'card' + j + '|' + i, x, y, userID, gameID);
       }
     }
 
@@ -44,10 +44,12 @@ io.on('connection', function(socket){
         for(j = 0; j < cards.length; j++) {
           if(cards[j].owner === players[i].userID) {
             cards.splice(j, 1);
+            j--;
           }
         }
 
         players.splice(i, 1);
+        i--;
       }
     }
   });
