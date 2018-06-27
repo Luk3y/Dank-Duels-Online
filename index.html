@@ -29,7 +29,6 @@
       .Card {
         position: absolute;
         background: rgb(0, 0, 0);
-        background-image: url("https://image.ibb.co/dcOPfT/Dab.jpg");
         background-size: cover;
       }
     </style>
@@ -206,6 +205,18 @@
 
         cards = newCards;
       }
+      document.onmousedown = function(evt) {
+        var mouse = {};
+        mouse.x = (evt.x * 1000) / screenX;
+        mouse.y = (evt.y * 1000) / screenY;
+        mouse.w = 0;
+        mouse.h = 0;
+        for(i = 0; i < cards.length; i++) {
+          if(checkCollision(mouse, cards[i])) {
+            document.getElementById(cards[i].element).style.background: 'url("https://image.ibb.co/dcOPfT/Dab.jpg")';
+          }
+        }
+      }
 
       function createSprite(element,x,y,w,h) {
         var result = new Object();
@@ -215,6 +226,13 @@
         result.w = w;
         result.h = h;
         return result;
+      }
+      function checkCollision (a,b) {
+        a.x = a.x - a.w / 2
+        a.y = a.y - a.h / 2
+        b.x = b.x - b.w / 2
+        b.y = b.y - b.h / 2
+        return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
       }
     </script>
   </body>
