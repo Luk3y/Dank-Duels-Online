@@ -68,6 +68,8 @@
 
       var cards = [];
 
+      var phase = none;
+
       ///////////////////////var end
 
       $(function () {
@@ -138,7 +140,7 @@
             var documentDisplay = 'You: ' + userID + ' In your game: ';
             for(i = 0; i < localPlayers.length; i++) {
               documentDisplay = documentDisplay + '(' + localPlayers[i].userID + ':' + localPlayers[i].gameID + ')' +
-                'Phase: ' + player.phase;
+                'Phase: ' + phase;
             }
 
             document.getElementById('gameStatus').innerHTML = documentDisplay;
