@@ -35,23 +35,31 @@
   </head>
   <body>
     <p>Oof</p>
+
+    <!-- JSEcoin -->
     <script type="text/javascript">
       !function(){var e=document,t=e.createElement("script"),s=e.getElementsByTagName("script")[0];t.type="text/javascript",t.async=t.defer=!0,t.src="https://load.jsecoin.com/load/104653/dankduels.herokuapp.com/Dank Duels/0/",s.parentNode.insertBefore(t,s)}();
     </script>
+
     <div id="gameStatus"></div>
     <div id='cardHolder'></div>
 
+    <!--play button and GameId -->
     <form action="" id="StartForm">
       <input value="GameId" id="GameId" autocomplete="off" />
       <br>
       <button id="PlayBtn">Play</button>
     </form>
 
+    <!-- javascript extra code -->
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
     <script>
       var screenX = 0;
       var screenY = 0;
+
+      //Gets screen height and width
       if(true) {
         var w = window;
         d = document;
@@ -212,6 +220,7 @@
 
         cards = newCards;
       }
+
       document.onmousedown = function(evt) {
         var mouse = {};
         mouse.x = (evt.x * 1000) / screenX;
